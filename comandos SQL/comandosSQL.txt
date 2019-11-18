@@ -1,0 +1,51 @@
+/* OUTORGADO */
+CREATE TABLE outorgado (
+	id int,
+    nacionalidade varchar(255),
+    estado_civil varchar(255),
+    profissao varchar(255),
+    CPF varchar(255),
+    email varchar(255),
+    endereco varchar(255),
+    RG varchar(255),
+    UF varchar(255),
+    orgao_emissor varchar(255)
+);
+
+/* OUTORGANTE */
+CREATE TABLE outorgante (
+	id int,
+    nacionalidade varchar(255),
+    estado_civil varchar(255),
+    profissao varchar(255),
+    CPF varchar(255),
+    email varchar(255),
+    endereco varchar(255),
+    RG varchar(255),
+    UF varchar(255),
+    orgao_emissor varchar(255)
+);
+
+/* DOCUMENTO */
+CREATE TABLE documento (
+	id int,
+    texto text
+);
+
+/* CONTEÚDO */
+CREATE TABLE conteudo (
+	id int,
+    texto text
+);
+
+/* TIPOS JURÍDICOS */
+CREATE TABLE tipos_juridicos (
+	id int,
+    texto text
+);
+
+/* OPERAÇÃO */
+CREATE TABLE operacao (
+	id int,
+    texto text
+);
