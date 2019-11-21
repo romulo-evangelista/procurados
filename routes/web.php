@@ -11,10 +11,18 @@
 |
 */
 
-Route::get('/', 'DocumentoController@index');
+Route::get('/', function () {
+    return view('index');
+})->name('index');
 
+// Procuração / Documento
+Route::get('/procuracao', 'DocumentoController@index')->name('documento.index');
+
+// Outorgados
 Route::get('/outorgados', 'OutorgadoController@index')->name('outorgado.index');
+Route::get('/new/outorgado', 'OutorgadoController@create')->name('outorgado.create');
+Route::post('/new/outorgado', 'OutorgadoController@store')->name('outorgado.store');
 
-Route::get('/new/outorgado', 'OutorgadoController@create');
-
-Route::post('/new/outorgado', 'OutorgadoController@store');
+// Outorgantes
+Route::get('/new/outorgante', 'OutorganteController@create')->name('outorgante.create');
+Route::post('/new/outorgante', 'OutorganteController@store')->name('outorgante.store');

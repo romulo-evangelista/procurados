@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Documento;
 
+use Illuminate\Support\Facades\DB;
+
 class DocumentoController extends Controller
 {
     public function index()
     {
+        $outorgados = DB::table('outorgados')->get()->all();
         $documentos = Documento::orderBy('created_at', 'desc')->paginate(10);
-        return view('documentos',['documentos' => $documentos]);
+        return view('documentos', [
+            'documentos' => $documentos,
+            'outorgados' => $outorgados
+        ]);
     }
 
     // public function create()

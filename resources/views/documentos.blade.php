@@ -75,13 +75,12 @@
                 text-align: center;
             }
 
-            .fields input {
+            .fields .outorgado_select {
                 width: 100%;
                 line-height: 25px;
                 background: transparent;
                 box-sizing: border-box;
                 outline: none;
-
                 border: none;
                 border-bottom: 1px solid #ccc;
             }
@@ -130,49 +129,36 @@
                     <form method="POST" action="/">
                         @csrf
 
-                        <div class="fields nacionalidade">
-                            <label for="nacionalidade">Nacionalidade</label>
-                            <input id="nacionalidade" type="text">
+                        <div class="fields outorgado">
+                            <label for="outorgado">Outorgado</label>
+                            <select class="outorgado_select">
+                                @foreach($outorgados as $o)
+                                    <option class="outorgado_opt">
+                                        {{$o->email}}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
 
-                        <div class="fields estadp_civil">
-                            <label for="estado_civil">Estado Civil</label>
-                            <input id="estado_civil" type="text">
+                        <div class="fields outorgantes">
+                            <label for="outorgantes">Outorgantes</label>
+                            <select class="outorgantes_select">
+
+                            </select>
                         </div>
 
-                        <div class="fields profissao">
-                            <label for="profissao">Profissão</label>
-                            <input id="profissao" type="text">
+                        <div class="fields tipos_juridicos">
+                            <label for="tipos_juridicos">Tipo Jurídico</label>
+                            <select class="tipos_juridicos_select">
+
+                            </select>
                         </div>
 
-                        <div class="fields cpf">
-                            <label for="cpf">CPF</label>
-                            <input id="cpf" type="text">
-                        </div>
+                        <div class="fields processo">
+                            <label for="processo">Processo</label>
+                            <select class="processo_select">
 
-                        <div class="fields email">
-                            <label for="email">Email</label>
-                            <input id="email" type="text">
-                        </div>
-
-                        <div class="fields endereco">
-                            <label for="endereco">Endereço</label>
-                            <input id="endereco" type="text">
-                        </div>
-
-                        <div class="fields rg">
-                            <label for="rg">RG</label>
-                            <input id="rg" type="text">
-                        </div>
-
-                        <div class="fields uf">
-                            <label for="uf">UF</label>
-                            <input id="uf" type="text">
-                        </div>
-
-                        <div class="fields orgao_emissor">
-                            <label for="orgao_emissor">Órgão Emissor</label>
-                            <input id="orgao_emissor" type="text">
+                            </select>
                         </div>
 
                         <div class="fields btn">
