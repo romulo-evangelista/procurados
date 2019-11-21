@@ -100,7 +100,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Outorgados
+                    Outorgados <a href="{{route('outorgado.create')}}">+</a>
                 </div>
 
                 <div class="outorgados_list">
@@ -116,6 +116,7 @@
                             <th>RG</th>
                             <th>UF</th>
                             <th>Órgão Emissor</th>
+                            <th>Ações</th>
                         </tr>
 
                         @foreach($outorgados as $o)
@@ -130,6 +131,16 @@
                                 <td>{{$o->RG}}</td>
                                 <td>{{$o->UF}}</td>
                                 <td>{{$o->orgao_emissor}}</td>
+                                <td>
+                                    <a href="{{route('outorgado.edit')}}">
+                                        Editar
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{route('outorgado.destroy')}}">
+                                        Excluir
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </table>

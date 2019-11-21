@@ -22,6 +22,8 @@ Route::get('/procuracao', 'DocumentoController@index')->name('documento.index');
 Route::get('/outorgados', 'OutorgadoController@index')->name('outorgado.index');
 Route::get('/new/outorgado', 'OutorgadoController@create')->name('outorgado.create');
 Route::post('/new/outorgado', 'OutorgadoController@store')->name('outorgado.store');
+Route::get('/edit/outorgado', 'OutorgadoController@edit')->name('outorgado.edit');
+Route::post('/destroy/outorgado', 'OutorgadoController@destroy')->name('outorgado.destroy');
 
 // Outorgantes
 Route::get('/new/outorgante', 'OutorganteController@create')->name('outorgante.create');
