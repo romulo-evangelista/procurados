@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'DocumentoController@index');
+
+Route::get('/outorgados', 'OutorgadoController@index')->name('outorgado.index');
+
+Route::get('/new/outorgado', 'OutorgadoController@create');
+
+Route::post('/new/outorgado', 'OutorgadoController@store');

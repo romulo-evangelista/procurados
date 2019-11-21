@@ -1,56 +1,148 @@
-/**
-    PROVAVELMENTE VAI SER PRECISO ALTERAR AS TABELAS PARA POR CHAVES ESTRANGEIRAS
-**/
-
-
 /* OUTORGADO */
-CREATE TABLE outorgado (
-	id int,
-    nacionalidade varchar(255),
-    estado_civil varchar(255),
-    profissao varchar(255),
-    CPF varchar(255),
-    email varchar(255),
-    endereco varchar(255),
-    RG varchar(255),
-    UF varchar(255),
-    orgao_emissor varchar(255)
+CREATE TABLE outorgados (
+	id INT NOT NULL AUTO_INCREMENT,
+    nacionalidade VARCHAR(255) NOT NULL,
+    estado_civil VARCHAR(255) NOT NULL,
+    profissao VARCHAR(255) NOT NULL,
+    CPF VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    endereco VARCHAR(255) NOT NULL,
+    RG VARCHAR(255) NOT NULL,
+    UF VARCHAR(255) NOT NULL,
+    orgao_emissor VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
+    PRIMARY KEY(id)
 );
 
 /* OUTORGANTE */
-CREATE TABLE outorgante (
-	id int,
-    nacionalidade varchar(255),
-    estado_civil varchar(255),
-    profissao varchar(255),
-    CPF varchar(255),
-    email varchar(255),
-    endereco varchar(255),
-    RG varchar(255),
-    UF varchar(255),
-    orgao_emissor varchar(255)
+CREATE TABLE outorgantes (
+	id INT NOT NULL AUTO_INCREMENT,
+    nacionalidade VARCHAR(255) NOT NULL,
+    estado_civil VARCHAR(255) NOT NULL,
+    profissao VARCHAR(255) NOT NULL,
+    CPF VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    endereco VARCHAR(255) NOT NULL,
+    RG VARCHAR(255) NOT NULL,
+    UF VARCHAR(255) NOT NULL,
+    orgao_emissor VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
+    PRIMARY KEY(id)
 );
 
 /* DOCUMENTO */
-CREATE TABLE documento (
-	id int,
-    texto text
+CREATE TABLE documentos (
+	id INT NOT NULL AUTO_INCREMENT,
+    texto TEXT NOT NULL,
+    outorgado_id INT,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
+    PRIMARY KEY(id)
 );
 
 /* CONTEÚDO */
-CREATE TABLE conteudo (
-	id int,
-    texto text
+CREATE TABLE conteudos (
+	id INT NOT NULL AUTO_INCREMENT,
+    texto TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
+    PRIMARY KEY(id)
 );
 
 /* TIPOS JURÍDICOS */
 CREATE TABLE tipos_juridicos (
-	id int,
-    texto text
+	id INT NOT NULL AUTO_INCREMENT,
+    texto TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
+    PRIMARY KEY(id)
 );
 
 /* OPERAÇÃO */
-CREATE TABLE operacao (
-	id int,
-    texto text
+CREATE TABLE operacoes (
+	id INT NOT NULL AUTO_INCREMENT,
+    texto TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
+    PRIMARY KEY(id)
 );
+
+/* DOCUMENTOS_OUTORGANTES */
+CREATE TABLE documentos_outorgantes (
+	documento_id INT NOT NULL,
+    outorgante_id INT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW()
+);
+
+/* DOCUMENTOS_CONTEUDOS */
+CREATE TABLE documentos_conteudos (
+	documento_id INT NOT NULL,
+    conteudo_id INT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW()
+);
+
+/* CONTEUDOS_TIPOSJURIDICOS */
+CREATE TABLE conteudos_tiposjuridicos (
+	conteudo_id INT NOT NULL,
+    tipojuridico_id INT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW()
+);
+
+/* CONTEUDOS_OPERACOES */
+CREATE TABLE conteudos_operacoes (
+	conteudo_id INT NOT NULL,
+    operacao_id INT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW()
+);
+
+
+/** ADD CONSTRAINTS **/
+
+/* PRIMARY KEY */
+
+ALTER TABLE documentos_outorgantes
+ADD PRIMARY KEY (documento_id, outorgante_id);
+
+ALTER TABLE documentos_conteudos
+ADD PRIMARY KEY (documento_id, conteudo_id);
+
+ALTER TABLE conteudos_tiposjuridicos
+ADD PRIMARY KEY (conteudo_id, tipojuridico_id);
+
+ALTER TABLE conteudos_operacoes
+ADD PRIMARY KEY (conteudo_id, operacao_id);
+
+/* FOREIGN KEY */
+
+ALTER TABLE documentos
+ADD FOREIGN KEY (outorgado_id) REFERENCES outorgados(id);
+
+ALTER TABLE documentos_outorgantes
+ADD FOREIGN KEY (documento_id) REFERENCES documentos(id);
+
+ALTER TABLE documentos_outorgantes
+ADD FOREIGN KEY (outorgante_id) REFERENCES outorgantes(id);
+
+ALTER TABLE documentos_conteudos
+ADD FOREIGN KEY (documento_id) REFERENCES documentos(id);
+
+ALTER TABLE documentos_conteudos
+ADD FOREIGN KEY (conteudo_id) REFERENCES conteudos(id);
+
+ALTER TABLE conteudos_tiposjuridicos
+ADD FOREIGN KEY (conteudo_id) REFERENCES conteudos(id);
+
+ALTER TABLE conteudos_tiposjuridicos
+ADD FOREIGN KEY (tipojuridico_id) REFERENCES tipos_juridicos(id);
+
+ALTER TABLE conteudos_operacoes
+ADD FOREIGN KEY (conteudo_id) REFERENCES conteudos(id);
+
+ALTER TABLE conteudos_operacoes
+ADD FOREIGN KEY (operacao_id) REFERENCES operacoes(id);

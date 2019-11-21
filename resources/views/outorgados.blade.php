@@ -4,10 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Procurados</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,600"
+            rel="stylesheet"
+        />
 
         <!-- Styles -->
         <style>
@@ -48,7 +51,12 @@
                 font-size: 84px;
             }
 
-            .links > a {
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+
+            /* Estilizando lista */
+            .outorgados_list {
                 color: #636b6f;
                 padding: 0 25px;
                 font-size: 13px;
@@ -58,9 +66,20 @@
                 text-transform: uppercase;
             }
 
-            .m-b-md {
-                margin-bottom: 30px;
+            .outorgado_data {
+                padding: 10px;
             }
+
+            table {
+                padding: 15px;
+                text-align: left;
+            }
+
+            table tr td,
+            table tr th {
+                padding: 10px;
+            }
+
         </style>
     </head>
     <body>
@@ -81,18 +100,39 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Outorgados
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="outorgados_list">
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nacionalidade</th>
+                            <th>Estado Civil</th>
+                            <th>Profissão</th>
+                            <th>CPF</th>
+                            <th>Email</th>
+                            <th>Endereço</th>
+                            <th>RG</th>
+                            <th>UF</th>
+                            <th>Órgão Emissor</th>
+                        </tr>
+
+                        @foreach($outorgados as $o)
+                            <tr>
+                                <td>{{$o->id}}</td>
+                                <td>{{$o->nacionalidade}}</td>
+                                <td>{{$o->estado_civil}}</td>
+                                <td>{{$o->profissao}}</td>
+                                <td>{{$o->CPF}}</td>
+                                <td>{{$o->email}}</td>
+                                <td>{{$o->endereco}}</td>
+                                <td>{{$o->RG}}</td>
+                                <td>{{$o->UF}}</td>
+                                <td>{{$o->orgao_emissor}}</td>
+                            </tr>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </div>
