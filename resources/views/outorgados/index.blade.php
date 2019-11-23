@@ -100,7 +100,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Outorgados <a href="{{route('outorgado.create')}}">+</a>
+                    Outorgados <a href="{{route('outorgados.create')}}">+</a>
                 </div>
 
                 <div class="outorgados_list">
@@ -132,14 +132,17 @@
                                 <td>{{$o->UF}}</td>
                                 <td>{{$o->orgao_emissor}}</td>
                                 <td>
-                                    <a href="{{route('outorgado.edit')}}">
+                                    <button type="button" onclick="location.href=`{{route('outorgados.edit', $o)}}`">
                                         Editar
-                                    </a>
+                                    </button>
                                 </td>
                                 <td>
-                                    <a href="{{route('outorgado.destroy')}}">
-                                        Excluir
-                                    </a>
+                                    <form action="{{route('outorgados.destroy', $o->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="submit" class="btn btn-danger">Excluir</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

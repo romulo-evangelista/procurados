@@ -77,9 +77,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{route('documento.index')}}">Procuração</a>
-                    <a href="{{route('outorgado.index')}}">Outorgado</a>
-                    <a href="{{route('outorgante.create')}}">Outorgantes</a>
+                    <a href="{{route('documentos.index')}}">Procuração</a>
+                    <a href="{{route('outorgados.index')}}">Outorgados</a>
+                    <a href="{{route('outorgantes.create')}}">Outorgantes</a>
                 </div>
             </div>
         </div>

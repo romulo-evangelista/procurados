@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Outorgante;
 use Illuminate\Http\Request;
-use App\Outorgado;
 
-class OutorgadoController extends Controller
+class OutorganteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class OutorgadoController extends Controller
      */
     public function index()
     {
-        $outorgados = Outorgado::latest()->paginate(5);
+        $outorgantes = Outorgado::latest()->paginate(5);
 
-        return view('outorgados.index',compact('outorgados'))
+        return view('outorgantes.index',compact('outorgantes'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -27,7 +27,7 @@ class OutorgadoController extends Controller
      */
     public function create()
     {
-        return view('outorgados.create');
+        return view('outorgantes.create');
     }
 
     /**
@@ -38,63 +38,63 @@ class OutorgadoController extends Controller
      */
     public function store(Request $request)
     {
-        Outorgado::create($request->all());
+        Outorgante::create($request->all());
 
         return redirect()
-            ->route('outorgados.index')
-            ->with('success','Outorgado criado com sucesso.');
+            ->route('outorgantes.index')
+            ->with('success','Outorgante criado com sucesso.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Outorgado  $outorgado
+     * @param  \App\Outorgante  $outorgante
      * @return \Illuminate\Http\Response
      */
-    public function show(Outorgado $outorgado)
+    public function show(Outorgante $outorgante)
     {
-        // return view('outorgados.show',compact('outorgado'));
+        // return view('outorgantes.show',compact('outorgante'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Outorgado  $outorgado
+     * @param  \App\Outorgante  $outorgante
      * @return \Illuminate\Http\Response
      */
-    public function edit(Outorgado $outorgado)
+    public function edit(Outorgante $outorgante)
     {
-        return view('outorgados.edit',compact('outorgado'));
+        return view('outorgantes.edit',compact('outorgante'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Outorgado  $outorgado
+     * @param  \App\Outorgante  $outorgante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Outorgado $outorgado)
+    public function update(Request $request, Outorgante $outorgante)
     {
-        $outorgado->update($request->all());
+        $outorgante->update($request->all());
 
         return redirect()
-            ->route('outorgados.index')
-            ->with('success','Outorgado atualizado com sucesso.');
+            ->route('outorgantes.index')
+            ->with('success','Outorgante atualizado com sucesso.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Outorgado  $outorgado
+     * @param  \App\Outorgante  $outorgante
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Outorgado $outorgado)
+    public function destroy(Outorgante $outorgante)
     {
-        $outorgado->delete();
+        $outorgante->delete();
 
         return redirect()
-            ->route('outorgados.index')
-            ->with('success','Outorgado deletado com sucesso.');
+            ->route('outorgantes.index')
+            ->with('success','Outorgante deletado com sucesso.');
     }
 }

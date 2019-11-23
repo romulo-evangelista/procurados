@@ -123,56 +123,102 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Novo Outorgado
+                    Atualizar Outorgado
                 </div>
 
                 <div class="outorgado_form">
-                    <form method="POST" action="/new/outorgado">
+                    <form method="POST" action="{{route('outorgados.update', $outorgado->id)}}">
                         @csrf
+                        @method('PUT')
 
                         <div class="fields nacionalidade">
                             <label for="nacionalidade">Nacionalidade</label>
-                            <input id="nacionalidade" name="nacionalidade" type="text">
+                            <input
+                                id="nacionalidade"
+                                name="nacionalidade"
+                                type="text"
+                                value="{{$outorgado->nacionalidade}}"
+                            >
                         </div>
 
-                        <div class="fields estadp_civil">
+                        <div class="fields estado_civil">
                             <label for="estado_civil">Estado Civil</label>
-                            <input id="estado_civil" name="estado_civil" type="text">
+                            <input
+                                id="estado_civil"
+                                name="estado_civil"
+                                type="text"
+                                value="{{$outorgado->estado_civil}}"
+                            >
                         </div>
 
                         <div class="fields profissao">
                             <label for="profissao">Profissão</label>
-                            <input id="profissao" name="profissao" type="text">
+                            <input
+                                id="profissao"
+                                name="profissao"
+                                type="text"
+                                value="{{$outorgado->profissao}}"
+                            >
                         </div>
 
                         <div class="fields CPF">
                             <label for="CPF">CPF</label>
-                            <input id="CPF" name="CPF" type="text">
+                            <input
+                                id="CPF"
+                                name="CPF"
+                                type="text"
+                                value="{{$outorgado->CPF}}"
+                            >
                         </div>
 
                         <div class="fields email">
                             <label for="email">Email</label>
-                            <input id="email" name="email" type="text">
+                            <input
+                                id="email"
+                                name="email"
+                                type="text"
+                                value="{{$outorgado->email}}"
+                            >
                         </div>
 
                         <div class="fields endereco">
                             <label for="endereco">Endereço</label>
-                            <input id="endereco" name="endereco" type="text">
+                            <input
+                                id="endereco"
+                                name="endereco"
+                                type="text"
+                                value="{{$outorgado->endereco}}"
+                            >
                         </div>
 
                         <div class="fields RG">
                             <label for="RG">RG</label>
-                            <input id="RG" name="RG" type="text">
+                            <input
+                                id="RG"
+                                name="RG"
+                                type="text"
+                                value="{{$outorgado->RG}}"
+                            >
                         </div>
 
                         <div class="fields UF">
                             <label for="UF">UF</label>
-                            <input id="UF" name="UF" type="text">
+                            <input
+                                id="UF"
+                                name="UF"
+                                type="text"
+                                value="{{$outorgado->UF}}"
+                            >
                         </div>
 
                         <div class="fields orgao_emissor">
                             <label for="orgao_emissor">Órgão Emissor</label>
-                            <input id="orgao_emissor" name="orgao_emissor" type="text">
+                            <input
+                                id="orgao_emissor"
+                                name="orgao_emissor"
+                                type="text"
+                                value="{{$outorgado->orgao_emissor}}"
+                            >
                         </div>
 
                         <div class="fields btn">
