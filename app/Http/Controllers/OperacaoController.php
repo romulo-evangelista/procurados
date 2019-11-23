@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Outorgado;
+use App\Operacao;
 use Illuminate\Http\Request;
 
-class OutorgadoController extends Controller
+class OperacaoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class OutorgadoController extends Controller
      */
     public function index()
     {
-        $outorgados = Outorgado::latest()->paginate(5);
+        $operacoes = Operacao::latest()->paginate(5);
 
-        return view('outorgados.index',compact('outorgados'))
+        return view('operacoes.index',compact('operacoes'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -27,7 +27,7 @@ class OutorgadoController extends Controller
      */
     public function create()
     {
-        return view('outorgados.create');
+        return view('operacoes.create');
     }
 
     /**
@@ -38,63 +38,63 @@ class OutorgadoController extends Controller
      */
     public function store(Request $request)
     {
-        Outorgado::create($request->all());
+        Operacao::create($request->all());
 
         return redirect()
-            ->route('outorgados.index')
-            ->with('success','Outorgado criado com sucesso.');
+            ->route('operacoes.index')
+            ->with('success','Operação criada com sucesso.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Outorgado  $outorgado
+     * @param  \App\Operacao  $operacao
      * @return \Illuminate\Http\Response
      */
-    public function show(Outorgado $outorgado)
+    public function show(Operacao $operacao)
     {
-        // return view('outorgados.show',compact('outorgado'));
+        // return view('operacoes.show',compact('operacao'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Outorgado  $outorgado
+     * @param  \App\Operacao  $operacao
      * @return \Illuminate\Http\Response
      */
-    public function edit(Outorgado $outorgado)
+    public function edit(Operacao $operacao)
     {
-        return view('outorgados.edit',compact('outorgado'));
+        return view('operacoes.edit',compact('operacao'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Outorgado  $outorgado
+     * @param  \App\Operacao  $operacao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Outorgado $outorgado)
+    public function update(Request $request, Operacao $operacao)
     {
-        $outorgado->update($request->all());
+        $operacao->update($request->all());
 
         return redirect()
-            ->route('outorgados.index')
-            ->with('success','Outorgado atualizado com sucesso.');
+            ->route('operacoes.index')
+            ->with('success','Operação atualizada com sucesso.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Outorgado  $outorgado
+     * @param  \App\Operacao  $operacao
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Outorgado $outorgado)
+    public function destroy(Operacao $operacao)
     {
-        $outorgado->delete();
+        $operacao->delete();
 
         return redirect()
-            ->route('outorgados.index')
-            ->with('success','Outorgado deletado com sucesso.');
+            ->route('operacoes.index')
+            ->with('success','Operação deletada com sucesso.');
     }
 }

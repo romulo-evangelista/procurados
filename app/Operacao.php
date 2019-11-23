@@ -14,4 +14,5 @@ class Operacao extends Model
     protected $fillable = [
         'texto',
     ];
+    protected $table = 'operacoes';
 }

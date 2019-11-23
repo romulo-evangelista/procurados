@@ -12,10 +12,16 @@ class DocumentoController extends Controller
     public function index()
     {
         $outorgados = DB::table('outorgados')->get()->all();
+        $outorgantes = DB::table('outorgantes')->get()->all();
+        $tipos_juridicos = DB::table('tipos_juridicos')->get()->all();
+        $operacoes = DB::table('operacoes')->get()->all();
         $documentos = Documento::orderBy('created_at', 'desc')->paginate(10);
         return view('documentos', [
             'documentos' => $documentos,
-            'outorgados' => $outorgados
+            'outorgados' => $outorgados,
+            'outorgantes' => $outorgantes,
+            'tipos_juridicos' => $tipos_juridicos,
+            'operacoes' => $operacoes
         ]);
     }
 

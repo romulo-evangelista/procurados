@@ -56,7 +56,7 @@
             }
 
             /* Estilizando formulário */
-            .outorgado_form {
+            .outorgante_form {
                 color: #636b6f;
                 padding: 0 25px;
                 font-size: 13px;
@@ -75,20 +75,18 @@
                 text-align: center;
             }
 
-            .outorgados_select,
-            .outorgantes_select,
-            .tipos_juridicos_select,
-            .operacoes_select {
+            .fields input {
                 width: 100%;
                 line-height: 25px;
                 background: transparent;
                 box-sizing: border-box;
                 outline: none;
+
                 border: none;
                 border-bottom: 1px solid #ccc;
             }
 
-            .fields input[type="button"] {
+            .fields input[type="submit"] {
                 margin: 0 auto;
                 width: 100px;
                 height: 50px;
@@ -101,7 +99,7 @@
                 transition: 1s;
             }
 
-            .fields input[type="button"]:hover {
+            .fields input[type="submit"]:hover {
                 background: #eca72c;
                 transition: 1s;
             }
@@ -125,59 +123,20 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Nova Procuração
+                    Novo Tipo Jurídico
                 </div>
 
-                <div class="outorgado_form">
-                    <form method="POST" action="/">
+                <div class="tipo_juridico_form">
+                    <form method="POST" action="{{route('tipos_juridicos.store')}}">
                         @csrf
 
-                        <div class="fields outorgados">
-                            <label for="outorgados">Outorgado</label>
-                            <select class="outorgados_select">
-                                @foreach($outorgados as $outorgado)
-                                    <option class="outorgado_opt">
-                                        {{$outorgado->email}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="fields outorgantes">
-                            <label for="outorgantes">Outorgantes</label>
-                            <select class="outorgantes_select">
-                                @foreach($outorgantes as $outorgante)
-                                    <option class="outorgante_opt">
-                                        {{$outorgante->email}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="fields tipos_juridicos">
-                            <label for="tipos_juridicos">Tipo Jurídico</label>
-                            <select class="tipos_juridicos_select">
-                                @foreach($tipos_juridicos as $tipo_juridico)
-                                    <option class="tipo_juridico_opt">
-                                        {{$tipo_juridico->texto}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="fields operacoes">
-                            <label for="operacoes">Operação</label>
-                            <select class="operacoes_select">
-                                @foreach($operacoes as $operacao)
-                                    <option class="operacao_opt">
-                                        {{$operacao->texto}}
-                                    </option>
-                                @endforeach
-                            </select>
+                        <div class="fields texto">
+                            <label for="texto">Texto</label>
+                            <input id="texto" name="texto" type="text">
                         </div>
 
                         <div class="fields btn">
-                            <input type="button" value="Enviar">
+                            <input type="submit" value="Enviar">
                         </div>
                     </form>
                 </div>

@@ -7,7 +7,10 @@
         <title>Procurados</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,600"
+            rel="stylesheet"
+        />
 
         <!-- Styles -->
         <style>
@@ -19,29 +22,41 @@
                 height: 100vh;
                 margin: 0;
             }
+
             .full-height {
                 height: 100vh;
             }
+
             .flex-center {
                 align-items: center;
                 display: flex;
                 justify-content: center;
             }
+
             .position-ref {
                 position: relative;
             }
+
             .top-right {
                 position: absolute;
                 right: 10px;
                 top: 18px;
             }
+
             .content {
                 text-align: center;
             }
+
             .title {
                 font-size: 84px;
             }
-            .links > a {
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+
+            /* Estilizando lista */
+            .tipos_juridicos_list {
                 color: #636b6f;
                 padding: 0 25px;
                 font-size: 13px;
@@ -50,9 +65,21 @@
                 text-decoration: none;
                 text-transform: uppercase;
             }
-            .m-b-md {
-                margin-bottom: 30px;
+
+            .tipo_juridico_data {
+                padding: 10px;
             }
+
+            table {
+                padding: 15px;
+                text-align: left;
+            }
+
+            table tr td,
+            table tr th {
+                padding: 10px;
+            }
+
         </style>
     </head>
     <body>
@@ -73,15 +100,37 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Procurados
+                    Tipos Jurídicos <a href="{{route('tipos_juridicos.create')}}">+</a>
                 </div>
 
-                <div class="links">
-                    <a href="{{route('documentos.index')}}">Procuração</a>
-                    <a href="{{route('outorgados.index')}}">Outorgados</a>
-                    <a href="{{route('outorgantes.index')}}">Outorgantes</a>
-                    <a href="{{route('tipos_juridicos.index')}}">Tipos Jurídicos</a>
-                    <a href="{{route('operacoes.index')}}">Operações</a>
+                <div class="tipos_juridicos_list">
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>Texto</th>
+                            <th>Ações</th>
+                        </tr>
+
+                        @foreach($tipos_juridicos as $tj)
+                            <tr>
+                                <td>{{$tj->id}}</td>
+                                <td>{{$tj->texto}}</td>
+                                <td>
+                                    <button type="button" onclick="location.href=`{{route('tipos_juridicos.edit', $tj)}}`">
+                                        Editar
+                                    </button>
+                                </td>
+                                <td>
+                                    <form action="{{route('tipos_juridicos.destroy', $tj->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button type="submit" class="btn btn-danger">Excluir</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </div>
