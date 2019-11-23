@@ -14,7 +14,7 @@ class OutorganteController extends Controller
      */
     public function index()
     {
-        $outorgantes = Outorgado::latest()->paginate(5);
+        $outorgantes = Outorgante::latest()->paginate(5);
 
         return view('outorgantes.index',compact('outorgantes'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
