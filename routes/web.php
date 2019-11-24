@@ -16,7 +16,8 @@ Route::get('/', function () {
 })->name('index');
 
 // Procuração / Documento
-Route::get('/procuracao', 'DocumentoController@index')->name('documentos.index');
+Route::get('/procuracao', 'DocumentoController@index')->name('procuracao.index');
+Route::post('/documento', 'DocumentoController@documento')->name('documento');
 
 // Outorgados
 Route::resource('outorgados', 'OutorgadoController');

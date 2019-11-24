@@ -16,13 +16,46 @@ class DocumentoController extends Controller
         $tipos_juridicos = DB::table('tipos_juridicos')->get()->all();
         $operacoes = DB::table('operacoes')->get()->all();
         $documentos = Documento::orderBy('created_at', 'desc')->paginate(10);
-        return view('documentos', [
+        return view('procuracao', [
             'documentos' => $documentos,
             'outorgados' => $outorgados,
             'outorgantes' => $outorgantes,
             'tipos_juridicos' => $tipos_juridicos,
             'operacoes' => $operacoes
         ]);
+    }
+
+    public function documento(Request $request)
+    {
+        $outorgado = DB::table('outorgados')
+            ->where('id', $request->outorgado_id)
+            ->get()
+            ->first();
+
+        $outorgante = DB::table('outorgantes')
+            ->where('id', $request->outorgante_id)
+            ->get()
+            ->first();
+
+        $tipo_juridico = DB::table('tipos_juridicos')
+            ->where('id', $request->tipo_juridico_id)
+            ->get()
+            ->first();
+
+        $operacao = DB::table('operacoes')
+            ->where('id', $request->operacao_id)
+            ->get()
+            ->first();
+
+        $conteudos = [];
+
+        return view('documento', compact(
+            'outorgado',
+            'outorgante',
+            'tipo_juridico',
+            'operacao',
+            'conteudos'
+        ));
     }
 
     // public function create()

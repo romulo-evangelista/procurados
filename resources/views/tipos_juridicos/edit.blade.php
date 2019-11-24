@@ -127,7 +127,7 @@
                 </div>
 
                 <div class="tipo_juridico_form">
-                    <form method="POST" action="{{route('tipos_juridicos.update', $tipo_juridico->id)}}">
+                    <form method="POST" action="{{route('tipos_juridicos.update', ['id' => $tipo_juridico->id])}}">
                         @csrf
                         @method('PUT')
 

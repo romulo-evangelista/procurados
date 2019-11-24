@@ -125,61 +125,15 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Nova Procuração
+                    Procuração
                 </div>
 
-                <div class="outorgado_form">
-                    <form method="POST" action="/">
-                        @csrf
+                <div class="conteudo">
+                    {{$outorgado->id}}
+                    {{$outorgante->id}}
+                    {{$tipo_juridico->id}}
+                    {{$operacao->id}}
 
-                        <div class="fields outorgados">
-                            <label for="outorgados">Outorgado</label>
-                            <select class="outorgados_select">
-                                @foreach($outorgados as $outorgado)
-                                    <option class="outorgado_opt">
-                                        {{$outorgado->email}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="fields outorgantes">
-                            <label for="outorgantes">Outorgantes</label>
-                            <select class="outorgantes_select">
-                                @foreach($outorgantes as $outorgante)
-                                    <option class="outorgante_opt">
-                                        {{$outorgante->email}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="fields tipos_juridicos">
-                            <label for="tipos_juridicos">Tipo Jurídico</label>
-                            <select class="tipos_juridicos_select">
-                                @foreach($tipos_juridicos as $tipo_juridico)
-                                    <option class="tipo_juridico_opt">
-                                        {{$tipo_juridico->texto}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="fields operacoes">
-                            <label for="operacoes">Operação</label>
-                            <select class="operacoes_select">
-                                @foreach($operacoes as $operacao)
-                                    <option class="operacao_opt">
-                                        {{$operacao->texto}}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="fields btn">
-                            <input type="button" value="Enviar">
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

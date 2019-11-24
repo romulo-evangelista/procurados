@@ -64,6 +64,7 @@ class TiposJuridicosController extends Controller
      */
     public function edit(TiposJuridicos $tipo_juridico)
     {
+        dd($tipo_juridico);
         return view('tipos_juridicos.edit',compact('tipo_juridico'));
     }
 

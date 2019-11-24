@@ -132,16 +132,18 @@
                                 <td>{{$o->UF}}</td>
                                 <td>{{$o->orgao_emissor}}</td>
                                 <td>
-                                    <button type="button" onclick="location.href=`{{route('outorgantes.edit', $o)}}`">
-                                        Editar
-                                    </button>
+                                    <form method="GET" action="{{route('outorgantes.edit', $o)}}" >
+                                        @csrf
+
+                                        <button type="submit">Editar</button>
+                                    </form>
                                 </td>
                                 <td>
-                                    <form action="{{route('outorgantes.destroy', $o->id)}}" method="POST">
+                                    <form method="POST" action="{{route('outorgantes.destroy', $o->id)}}">
                                         @csrf
                                         @method('DELETE')
 
-                                        <button type="submit" class="btn btn-danger">Excluir</button>
+                                        <button type="submit">Excluir</button>
                                     </form>
                                 </td>
                             </tr>

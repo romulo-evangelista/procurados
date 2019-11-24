@@ -116,16 +116,18 @@
                                 <td>{{$tj->id}}</td>
                                 <td>{{$tj->texto}}</td>
                                 <td>
-                                    <button type="button" onclick="location.href=`{{route('tipos_juridicos.edit', $tj)}}`">
-                                        Editar
-                                    </button>
+                                    <form method="GET" action="{{route('tipos_juridicos.edit', $tj)}}">
+                                        @csrf
+
+                                        <button type="submit">Editar</button>
+                                    </form>
                                 </td>
                                 <td>
-                                    <form action="{{route('tipos_juridicos.destroy', $tj->id)}}" method="POST">
+                                    <form method="POST" action="{{route('tipos_juridicos.destroy', $tj->id)}}">
                                         @csrf
                                         @method('DELETE')
 
-                                        <button type="submit" class="btn btn-danger">Excluir</button>
+                                        <button type="submit">Excluir</button>
                                     </form>
                                 </td>
                             </tr>

@@ -116,16 +116,18 @@
                                 <td>{{$o->id}}</td>
                                 <td>{{$o->texto}}</td>
                                 <td>
-                                    <button type="button" onclick="location.href=`{{route('operacoes.edit', $o)}}`">
-                                        Editar
-                                    </button>
+                                    <form method="GET" action="{{route('operacoes.edit', $o)}}">
+                                        @csrf
+
+                                        <button type="submit">Editar</button>
+                                    </form>
                                 </td>
                                 <td>
-                                    <form action="{{route('operacoes.destroy', $o->id)}}" method="POST">
+                                    <form method="POST" action="{{route('operacoes.destroy', $o->id)}}">
                                         @csrf
                                         @method('DELETE')
 
-                                        <button type="submit" class="btn btn-danger">Excluir</button>
+                                        <button type="submit">Excluir</button>
                                     </form>
                                 </td>
                             </tr>
