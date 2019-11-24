@@ -116,7 +116,7 @@
                                 <td>{{$o->id}}</td>
                                 <td>{{$o->texto}}</td>
                                 <td>
-                                    <form method="GET" action="{{route('operacoes.edit', $o)}}">
+                                    <form method="GET" action="{{route('operacoes.edit', $o->id)}}">
                                         @csrf
 
                                         <button type="submit">Editar</button>

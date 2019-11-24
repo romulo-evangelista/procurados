@@ -55,8 +55,8 @@
                 margin-bottom: 30px;
             }
 
-            /* Estilizando lista */
-            .tipos_juridicos_list {
+            /* Estilizando formulário */
+            .tipo_juridico_form {
                 color: #636b6f;
                 padding: 0 25px;
                 font-size: 13px;
@@ -66,20 +66,43 @@
                 text-transform: uppercase;
             }
 
-            .tipo_juridico_data {
-                padding: 10px;
-            }
-
-            table {
-                padding: 15px;
+            .fields {
                 text-align: left;
+                padding: 5px 0;
             }
 
-            table tr td,
-            table tr th {
-                padding: 10px;
+            .btn {
+                text-align: center;
             }
 
+            .fields input {
+                width: 100%;
+                line-height: 25px;
+                background: transparent;
+                box-sizing: border-box;
+                outline: none;
+
+                border: none;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .fields input[type="submit"] {
+                margin: 0 auto;
+                width: 100px;
+                height: 50px;
+                background: #ccc;
+                border: none;
+                outline: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: 1s;
+            }
+
+            .fields input[type="submit"]:hover {
+                background: #eca72c;
+                transition: 1s;
+            }
         </style>
     </head>
     <body>
@@ -100,39 +123,28 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Tipos Jurídicos <a href="{{route('tipos_juridicos.create')}}">+</a>
+                    Atualizar tipo jurídico
                 </div>
 
-                <div class="tipos_juridicos_list">
-                    <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>Texto</th>
-                            <th>Ações</th>
-                        </tr>
+                <div class="tipo_juridico_form">
+                    <form method="POST" action="{{route('tiposJuridicos.update', $tiposJuridicos->id)}}">
+                        @csrf
+                        @method('PUT')
 
-                        @foreach($tipos_juridicos as $tj)
-                            <tr>
-                                <td>{{$tj->id}}</td>
-                                <td>{{$tj->texto}}</td>
-                                <td>
-                                    <form method="GET" action="{{route('tipos_juridicos.edit', $tj)}}">
-                                        @csrf
+                        <div class="fields texto">
+                            <label for="texto">Texto</label>
+                            <input
+                                id="texto"
+                                name="texto"
+                                type="text"
+                                value="{{$tiposJuridicos->texto}}"
+                            >
+                        </div>
 
-                                        <button type="submit">Editar</button>
-                                    </form>
-                                </td>
-                                <td>
-                                    <form method="POST" action="{{route('tipos_juridicos.destroy', $tj->id)}}">
-                                        @csrf
-                                        @method('DELETE')
-
-                                        <button type="submit">Excluir</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
+                        <div class="fields btn">
+                            <input type="submit" value="Enviar">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

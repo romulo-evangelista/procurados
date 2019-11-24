@@ -26,7 +26,7 @@ Route::resource('outorgados', 'OutorgadoController');
 Route::resource('outorgantes', 'OutorganteController');
 
 // Tipos Juridicos
-Route::resource('tipos_juridicos', 'TiposJuridicosController');
+Route::resource('tiposJuridicos', 'TiposJuridicosController');
 
 // Operações
 Route::resource('operacoes', 'OperacaoController');

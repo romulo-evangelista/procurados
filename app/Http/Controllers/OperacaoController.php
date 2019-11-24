@@ -51,8 +51,9 @@ class OperacaoController extends Controller
      * @param  \App\Operacao  $operacao
      * @return \Illuminate\Http\Response
      */
-    public function show(Operacao $operacao)
+    public function show(Operacao $operacao, $id)
     {
+        // $operacao = Operacao::where('id', $id)->get()->first();
         // return view('operacoes.show',compact('operacao'));
     }
 
@@ -62,8 +63,9 @@ class OperacaoController extends Controller
      * @param  \App\Operacao  $operacao
      * @return \Illuminate\Http\Response
      */
-    public function edit(Operacao $operacao)
+    public function edit(Operacao $operacao, $id)
     {
+        $operacao = Operacao::where('id', $id)->get()->first();
         return view('operacoes.edit',compact('operacao'));
     }
 
@@ -74,8 +76,9 @@ class OperacaoController extends Controller
      * @param  \App\Operacao  $operacao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Operacao $operacao)
+    public function update(Request $request, Operacao $operacao, $id)
     {
+        $operacao = Operacao::where('id', $id)->get()->first();
         $operacao->update($request->all());
 
         return redirect()
@@ -89,8 +92,9 @@ class OperacaoController extends Controller
      * @param  \App\Operacao  $operacao
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Operacao $operacao)
+    public function destroy(Operacao $operacao, $id)
     {
+        $operacao = Operacao::where('id', $id)->get()->first();
         $operacao->delete();
 
         return redirect()

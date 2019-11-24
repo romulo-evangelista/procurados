@@ -80,7 +80,7 @@
                     <a href="{{route('procuracao.index')}}">Procuração</a>
                     <a href="{{route('outorgados.index')}}">Outorgados</a>
                     <a href="{{route('outorgantes.index')}}">Outorgantes</a>
-                    <a href="{{route('tipos_juridicos.index')}}">Tipos Jurídicos</a>
+                    <a href="{{route('tiposJuridicos.index')}}">Tipos Jurídicos</a>
                     <a href="{{route('operacoes.index')}}">Operações</a>
                 </div>
             </div>

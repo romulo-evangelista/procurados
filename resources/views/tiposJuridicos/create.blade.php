@@ -56,7 +56,7 @@
             }
 
             /* Estilizando formulário */
-            .tipo_juridico_form {
+            .outorgante_form {
                 color: #636b6f;
                 padding: 0 25px;
                 font-size: 13px;
@@ -123,22 +123,16 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Atualizar tipo jurídico
+                    Novo Tipo Jurídico
                 </div>
 
                 <div class="tipo_juridico_form">
-                    <form method="POST" action="{{route('tipos_juridicos.update', ['id' => $tipo_juridico->id])}}">
+                    <form method="POST" action="{{route('tiposJuridicos.store')}}">
                         @csrf
-                        @method('PUT')
 
                         <div class="fields texto">
                             <label for="texto">Texto</label>
-                            <input
-                                id="texto"
-                                name="texto"
-                                type="text"
-                                value="{{$tipo_juridico->texto}}"
-                            >
+                            <input id="texto" name="texto" type="text">
                         </div>
 
                         <div class="fields btn">

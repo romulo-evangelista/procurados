@@ -14,6 +14,4 @@ class TiposJuridicos extends Model
     protected $fillable = [
         'texto',
     ];
-
-    protected $table = 'tipos_juridicos';
 }
