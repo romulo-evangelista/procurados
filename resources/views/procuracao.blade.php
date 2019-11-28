@@ -216,8 +216,8 @@
 
                                 <input
                                     type='hidden'
-                                    id='tipo_juridico_id'
-                                    name='tipo_juridico_id'
+                                    id='tipojuridico_id'
+                                    name='tipojuridico_id'
                                     value=''
                                 />
 
@@ -281,7 +281,7 @@
                 var e = document.getElementById("tipos_juridicos_select");
                 var selectedItem = e.options[e.selectedIndex].value;
                 var id = selectedItem[0];
-                document.getElementById("tipo_juridico_id").value = id;
+                document.getElementById("tipojuridico_id").value = id;
             }
 
             function operacoesChange() {

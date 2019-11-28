@@ -105,6 +105,11 @@
                 background: #eca72c;
                 transition: 1s;
             }
+
+            .conteudo {
+                text-align: left;
+                width: 550px;
+            }
         </style>
     </head>
     <body>
@@ -132,11 +137,48 @@
                 </div>
 
                 <div class="conteudo">
-                    {{$outorgado->id}}
-                    {{$outorgante->id}}
-                    {{$tipo_juridico->id}}
-                    {{$operacao->id}}
 
+                    <b>OUTORGANTE</b> (s): <br>
+                    - Titular
+                    {{$outorgante->nome}},
+                    {{$outorgante->nacionalidade}},
+                    {{$outorgante->estado_civil}},
+                    {{$outorgante->profissao}},
+                    {{$outorgante->RG}} - {{$outorgante->orgao_emissor}}-{{$outorgante->UF}},
+                    {{$outorgante->endereco}},
+                    {{$outorgante->email}}
+
+                    <br>
+                    <br>
+
+                    <b>OUTORGADO</b> (s): <br>
+                    {{$outorgado->nome}},
+                    {{$outorgado->nacionalidade}},
+                    {{$outorgado->estado_civil}},
+                    {{$outorgado->profissao}},
+                    {{$outorgado->RG}} - {{$outorgado->orgao_emissor}}-{{$outorgado->UF}},
+                    {{$outorgado->endereco}},
+                    {{$outorgado->email}}
+
+                    <br>
+                    <br>
+
+                    @php
+                        if(strpos($conteudo->texto, "(nome_empresario)"))
+                            $replaced = str_replace("(nome_empresario)",
+                                $outorgante->nome,
+                                $conteudo->texto);
+
+                        if(strpos($conteudo->texto, "(nome_empresarial)"))
+                            $replaced = str_replace("(nome_empresarial)",
+                                $outorgante->nome_empresarial,
+                                $conteudo->texto);
+                    @endphp
+
+                    {{$replaced}}
+
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>

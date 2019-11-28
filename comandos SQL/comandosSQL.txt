@@ -149,3 +149,439 @@ ADD FOREIGN KEY (conteudo_id) REFERENCES conteudos(id);
 
 ALTER TABLE conteudos_operacoes
 ADD FOREIGN KEY (operacao_id) REFERENCES operacoes(id);
+
+
+/** POPULANDO BANCO COM OS CONTEÚDOS **/
+
+/** TIPOS JURÍDICOS **/
+
+INSERT INTO `tipos_juridicos` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Empresário Individual',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `tipos_juridicos` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'EIRELI',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `tipos_juridicos` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Sociedade Empresária Limitada',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/** OPERAÇÕES **/
+
+INSERT INTO `operacoes` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Abertura',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `operacoes` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Alteração',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `operacoes` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Extinção',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+
+/** EMPRESÁRIO **/
+
+/* ABERTURA */
+
+INSERT INTO `conteudos` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Por este instrumento o(s) outorgante(s) constitui(em) procurador o(s) outorgado(s), a quem confere poderes específicos para assinar requerimentos/capa de processo e o ato de inscrição como empresário (nome_empresario), assinando o requerimento próprio (REMP) e declaração de enquadramento como ME ou EPP em nome do(s) outorgante (s),podendo assinar todos os documentos necessários, praticados com o uso de certificação digital, a ser(em) apresentado(s) para arquivamento perante a Junta Comercial do Estado do Ceará – JUCEC, vedado o substabelecimento a terceiros dos poderes ora conferidos.\r\n',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/* ALTERAÇÃO */
+
+INSERT INTO `conteudos` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Por este instrumento o(s) outorgante(s) constitui(em) procurador o(s) outorgado(s), a quem confere poderes específicos para assinar requerimentos/capa de processo e o ato de alteração como empresário (nome_empresario), assinando o requerimento próprio (REMP) com as alterações: (nome empresarial, objeto, endereço, capital, transformação, entre outras) e demais documentos necessários em nome do(s) outorgante(s), praticados com o uso de certificação digital, a ser(em) apresentado(s) para arquivamento perante a Junta Comercial do Estado do Ceará – JUCEC, vedado o substabelecimento a terceiros dos poderes ora conferidos.\r\n',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/* EXTINÇÃO */
+
+INSERT INTO `conteudos` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Por este instrumento o(s) outorgante(s) constitui(em) procurador o(s) outorgado(s), a quem confere poderes específicos para assinar requerimentos/capa de processo e o ato de extinção como empresário (nome_empresario), assinando o requerimento próprio (REMP) e demais documentos necessários em nome do(s) outorgante (s), praticados com o uso de certificação digital, a ser(em) apresentado(s) para arquivamento perante a Junta Comercial do Estado do Ceará – JUCEC, vedado o substabelecimento a terceiros dos poderes ora conferidos.\r\n',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+
+/** EIRELI **/
+
+/* ABERTURA */
+
+INSERT INTO `conteudos` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Por este instrumento o(s) outorgante(s) constitui(em) procurador o(s) outorgado(s), a quem confere poderes específicos para assinar requerimentos/capa de processo, o ato de constituição da empresa individual de responsabilidade limitada- EIRELI (nome_empresarial), subscrever e integralizar o capital, assinar a declaração do art. 1011 da lei 10.406/2002 e declaração de enquadramento como ME ou EPP em nome do(s) outorgante (s), e demais documentos necessários à efetivação do ato, praticados com o uso de certificação digital, a ser(em) apresentado(s) para arquivamento perante a Junta Comercial do Estado do Ceará – JUCEC, vedado o substabelecimento a terceiros dos poderes ora conferidos.\r\n',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/* ALTERAÇÃO */
+
+INSERT INTO `conteudos` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Por este instrumento particular, o(s) outorgante(s) constitui(em) procurador o(s) outorgado(s), a quem confere poderes específicos para assinar requerimentos/capa de processo e ato de alteração como empresário (nome_empresario), indicar as alterações deliberadas no ato: (de nome empresarial, endereço da sede e filiais, objeto, atividade, capital, administração, transformação, consolidação, transferência de titularidade e outras alterações) assinar a declaração do art. 1011 da lei 10.406/2002 (se nomeado administrador no ato) em nome do(s) outorgante (s), e demais documentos necessários à instrução do ato empresarial, praticados com o uso de certificação digital, a ser(em) apresentado(s) para arquivamento perante a Junta Comercial do Estado do Ceará – JUCEC, vedado o substabelecimento a terceiros dos poderes ora conferidos.\r\n',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/* EXTINÇÃO */
+
+INSERT INTO `conteudos` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Por este instrumento particular, o(s) outorgante(s) constitui(em) procurador o(s) outorgado(s), a quem confere poderes específicos para assinar requerimentos/capa de processo, e ato de extinção da empresa (nome_empresarial) , bem como indicação do responsável pelo ativo e passivo e guarda dos livros mercantis, praticados com o uso de certificação digital em nome do(s) outorgante(s), a ser(em) apresentado(s) para arquivamento perante a Junta Comercial do Estado do Ceará – JUCEC, vedado o substabelecimento a terceiros dos poderes ora conferidos.\r\n',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/** SOCIEDADE **/
+
+/* ABERTURA */
+
+INSERT INTO `conteudos` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Por este instrumento particular, o outorgante constitui procurador o outorgado, a quem confere poderes específicos para assinar, requerimentos e capa de processo e ato de constituição da sociedade (nome_empresarial) em todos os termos e condições, subscrever quotas, assinar a declaração do art. 1011 da lei 10.406/2002, assinar declaração de enquadramento como ME ou EPP e outros documentos necessários à efetivação do ato empresarial em nome do outorgante, praticados com o uso de certificação digital, a ser apresentado para arquivamento perante a Junta Comercial do Estado do Ceará ¬ JUCEC, vedado o substabelecimento a terceiros dos poderes ora conferidos.\r\n',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/* ALTERAÇÃO */
+
+INSERT INTO `conteudos` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Por este instrumento particular, o outorgante constitui procurador o outorgado, a quem confere poderes específicos para assinar, requerimentos e capa de processo e ato de alteração, transformação e consolidação, indicar apenas as alterações deliberadas no ato:(de nome empresarial, endereço da sede e filiais, objeto, atividade, capital social, administração da empresa, reativação, com cessão de cotas) em todos os termos e condições,  da sociedade (nome_empresarial), subscrever quotas no aumento do capital social, assinar a declaração do art. 1011 da lei 10.406/2002, e outros documentos necessários à efetivação do ato empresarial em nome do outorgante, praticados com o uso de certificação digital, a ser apresentado para arquivamento perante a Junta Comercial do Estado do Ceará ¬ JUCEC, vedado o substabelecimento a terceiros dos poderes ora conferidos.\r\n',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/* EXTINÇÃO */
+
+INSERT INTO `conteudos` (
+    `id`,
+    `texto`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        NULL,
+        'Por este instrumento particular, o outorgante constitui procurador o outorgado, a quem confere poderes específicos para assinar, requerimentos/capa de processo e ato de extinção da sociedade (nome_empresarial) em todos os termos e condições, fazer a indicação do responsável pelo ativo e passivo da sociedade, bem como pela guarda dos livros mercantis em nome do outorgante, e assinar todos os documentos necessários, praticados com o uso de certificação digital, a ser apresentado para arquivamento perante a Junta Comercial do Estado do Ceará - JUCEC, vedado o substabelecimento a terceiros dos poderes ora conferidos.\r\n',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/** CONTEUDOS_TIPOSJURIDICOS **/
+
+/* EMPRESÁRIO */
+
+INSERT INTO `conteudos_tiposjuridicos` (
+    `conteudo_id`,
+    `tipojuridico_id`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        '1',
+        '1',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `conteudos_tiposjuridicos` (
+    `conteudo_id`,
+    `tipojuridico_id`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        '2',
+        '1',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `conteudos_tiposjuridicos` (
+    `conteudo_id`,
+    `tipojuridico_id`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        '3',
+        '1',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/* EIRELI */
+
+INSERT INTO `conteudos_tiposjuridicos` (
+    `conteudo_id`,
+    `tipojuridico_id`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        '4',
+        '2',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `conteudos_tiposjuridicos` (
+    `conteudo_id`,
+    `tipojuridico_id`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        '5',
+        '2',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `conteudos_tiposjuridicos` (
+    `conteudo_id`,
+    `tipojuridico_id`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        '6',
+        '2',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/* SOCIEDADE */
+
+INSERT INTO `conteudos_tiposjuridicos` (
+    `conteudo_id`,
+    `tipojuridico_id`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        '7',
+        '3',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `conteudos_tiposjuridicos` (
+    `conteudo_id`,
+    `tipojuridico_id`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        '8',
+        '3',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `conteudos_tiposjuridicos` (
+    `conteudo_id`,
+    `tipojuridico_id`,
+    `created_at`,
+    `updated_at`)
+    VALUES (
+        '9',
+        '3',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/** CONTEUDOS_OPERACOES **/
+
+/* ABERTURA */
+
+INSERT INTO `conteudos_operacoes` (
+    `conteudo_id`,
+    `operacao_id`,
+    `created_at`,
+    `updated_at`) VALUES (
+        '1',
+        '1',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `conteudos_operacoes` (
+    `conteudo_id`,
+    `operacao_id`,
+    `created_at`,
+    `updated_at`) VALUES (
+        '4',
+        '1',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `conteudos_operacoes` (
+    `conteudo_id`,
+    `operacao_id`,
+    `created_at`,
+    `updated_at`) VALUES (
+        '7',
+        '1',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/* ALTERAÇÃO */
+
+INSERT INTO `conteudos_operacoes` (
+    `conteudo_id`,
+    `operacao_id`,
+    `created_at`,
+    `updated_at`) VALUES (
+        '2',
+        '2',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `conteudos_operacoes` (
+    `conteudo_id`,
+    `operacao_id`,
+    `created_at`,
+    `updated_at`) VALUES (
+        '5',
+        '2',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `conteudos_operacoes` (
+    `conteudo_id`,
+    `operacao_id`,
+    `created_at`,
+    `updated_at`) VALUES (
+        '8',
+        '2',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+/* EXTINÇÃO */
+
+INSERT INTO `conteudos_operacoes` (
+    `conteudo_id`,
+    `operacao_id`,
+    `created_at`,
+    `updated_at`) VALUES (
+        '3',
+        '3',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `conteudos_operacoes` (
+    `conteudo_id`,
+    `operacao_id`,
+    `created_at`,
+    `updated_at`) VALUES (
+        '6',
+        '3',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);
+
+INSERT INTO `conteudos_operacoes` (
+    `conteudo_id`,
+    `operacao_id`,
+    `created_at`,
+    `updated_at`) VALUES (
+        '9',
+        '3',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+);

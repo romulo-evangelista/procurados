@@ -38,7 +38,7 @@ class DocumentoController extends Controller
             ->first();
 
         $tipo_juridico = DB::table('tipos_juridicos')
-            ->where('id', $request->tipo_juridico_id)
+            ->where('id', $request->tipojuridico_id)
             ->get()
             ->first();
 
@@ -47,14 +47,32 @@ class DocumentoController extends Controller
             ->get()
             ->first();
 
-        $conteudos = [];
+        $conteudos_operacoes = DB::table('conteudos_operacoes')
+            ->where('operacao_id', $request->operacao_id)
+            ->get('conteudo_id');
+
+        $conteudos_tiposjuridicos = DB::table('conteudos_tiposjuridicos')
+            ->where('tipojuridico_id', $request->tipojuridico_id)
+            ->get('conteudo_id');
+
+        foreach($conteudos_tiposjuridicos as $conteudo_tj) {
+            foreach($conteudos_operacoes as $conteudo_operacao) {
+                if($conteudo_tj->conteudo_id == $conteudo_operacao->conteudo_id) {
+                    $conteudo = DB::table('conteudos')
+                        ->get()
+                        ->where('id', $conteudo_tj->conteudo_id)
+                        ->where('id', $conteudo_operacao->conteudo_id)
+                        ->first();
+                }
+            }
+        }
 
         return view('documento', compact(
             'outorgado',
             'outorgante',
             'tipo_juridico',
             'operacao',
-            'conteudos'
+            'conteudo'
         ));
     }
 
