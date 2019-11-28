@@ -75,10 +75,7 @@
                 text-align: center;
             }
 
-            .outorgados_select,
-            .outorgantes_select,
-            .tipos_juridicos_select,
-            .operacoes_select {
+            .select {
                 width: 100%;
                 line-height: 25px;
                 background: transparent;
@@ -136,69 +133,125 @@
 
                         <div class="fields outorgados">
                             <label for="outorgados">Outorgado</label>
-                            <select class="outorgados_select">
+                            <select
+                                id="outorgados_select"
+                                class="select"
+                                onchange="outorgadoChange()">
+
+                                <option>Selecione um outorgado</option>
+
                                 @foreach($outorgados as $outorgado)
-                                    <option class="outorgado_opt">
-                                        {{$outorgado->email}}
-                                        <input
-                                            type="hidden"
-                                            id="outorgado_id"
-                                            name="outorgado_id"
-                                            value="{{$outorgado->id}}"
-                                        />
+                                    <option
+                                        class="outorgado_opt"
+                                        id="{{$outorgado->id}}"
+                                        name="{{$outorgado->id}}">
+
+                                        {{$outorgado->id}}
+                                        {{$outorgado->nome}}
+
                                     </option>
                                 @endforeach
+
+                                <input
+                                    type='hidden'
+                                    id='outorgado_id'
+                                    name='outorgado_id'
+                                    value=''
+                                />
+
                             </select>
                         </div>
 
                         <div class="fields outorgantes">
                             <label for="outorgantes">Outorgantes</label>
-                            <select class="outorgantes_select">
+                            <select
+                                id="outorgantes_select"
+                                class="select"
+                                onchange="outorganteChange()">
+
+                                <option>Selecione um outorgante</option>
+
                                 @foreach($outorgantes as $outorgante)
-                                    <option class="outorgante_opt">
-                                        {{$outorgante->email}}
-                                        <input
-                                            type="hidden"
-                                            id="outorgante_id"
-                                            name="outorgante_id"
-                                            value="{{$outorgante->id}}"
-                                        />
+                                    <option
+                                        class="outorgante_opt"
+                                        id="{{$outorgante->id}}"
+                                        name="{{$outorgante->id}}">
+
+                                        {{$outorgante->id}}
+                                        {{$outorgante->nome}}
+
                                     </option>
                                 @endforeach
+
+                                <input
+                                    type='hidden'
+                                    id='outorgante_id'
+                                    name='outorgante_id'
+                                    value=''
+                                />
+
                             </select>
                         </div>
 
                         <div class="fields tipos_juridicos">
                             <label for="tipos_juridicos">Tipo Jurídico</label>
-                            <select class="tipos_juridicos_select">
+                            <select
+                                id="tipos_juridicos_select"
+                                class="select"
+                                onchange="tiposJuridicosChange()">
+
+                                <option>Selecione um tipo jurídico</option>
+
                                 @foreach($tipos_juridicos as $tipo_juridico)
-                                    <option class="tipo_juridico_opt">
+                                    <option
+                                        class="tipo_juridico_opt"
+                                        id="{{$tipo_juridico->id}}"
+                                        name="{{$tipo_juridico->id}}">
+
+                                        {{$tipo_juridico->id}}
                                         {{$tipo_juridico->texto}}
-                                        <input
-                                            type="hidden"
-                                            id="tipo_juridico_id"
-                                            name="tipo_juridico_id"
-                                            value="{{$tipo_juridico->id}}"
-                                        />
+
                                     </option>
                                 @endforeach
+
+                                <input
+                                    type='hidden'
+                                    id='tipo_juridico_id'
+                                    name='tipo_juridico_id'
+                                    value=''
+                                />
+
                             </select>
                         </div>
 
                         <div class="fields operacoes">
                             <label for="operacoes">Operação</label>
-                            <select class="operacoes_select">
+                            <select
+                                id="operacoes_select"
+                                class="select"
+                                onchange="operacoesChange()">
+
+                                <option>Selecione uma operação</option>
+
                                 @foreach($operacoes as $operacao)
-                                    <option class="operacao_opt">
+                                    <option
+                                        class="tipo_juridico_opt"
+                                        id="{{$tipo_juridico->id}}"
+                                        name="{{$tipo_juridico->id}}">
+
+                                        {{$operacao->id}}
                                         {{$operacao->texto}}
-                                        <input
-                                            type="hidden"
-                                            id="operacao_id"
-                                            name="operacao_id"
-                                            value="{{$operacao->id}}"
-                                        />
+
                                     </option>
                                 @endforeach
+
+                                <input
+                                    type='hidden'
+                                    id='operacao_id'
+                                    name='operacao_id'
+                                    value=''
+                                />
+
                             </select>
                         </div>
                         <div class="fields btn">
@@ -208,5 +261,36 @@
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+            function outorgadoChange() {
+                var e = document.getElementById("outorgados_select");
+                var selectedItem = e.options[e.selectedIndex].value;
+                var id = selectedItem[0];
+                document.getElementById("outorgado_id").value = id;
+            }
+
+            function outorganteChange() {
+                var e = document.getElementById("outorgantes_select");
+                var selectedItem = e.options[e.selectedIndex].value;
+                var id = selectedItem[0];
+                document.getElementById("outorgante_id").value = id;
+            }
+
+            function tiposJuridicosChange() {
+                var e = document.getElementById("tipos_juridicos_select");
+                var selectedItem = e.options[e.selectedIndex].value;
+                var id = selectedItem[0];
+                document.getElementById("tipo_juridico_id").value = id;
+            }
+
+            function operacoesChange() {
+                var e = document.getElementById("operacoes_select");
+                var selectedItem = e.options[e.selectedIndex].value;
+                var id = selectedItem[0];
+                document.getElementById("operacao_id").value = id;
+            }
+        </script>
+
     </body>
 </html>
