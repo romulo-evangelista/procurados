@@ -254,6 +254,18 @@
 
                             </select>
                         </div>
+
+                        <div class="fields local">
+                            Local da assinatura: 
+                            <input id="local" name="local" type="text">
+                        </div>
+
+                        <div class="fields data">
+                            Data da procuração: 
+                            <input id="data" name="data" type="date">
+                        </div>
+
+
                         <div class="fields btn">
                             <input type="submit" value="Enviar">
                         </div>

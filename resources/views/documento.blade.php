@@ -107,8 +107,14 @@
             }
 
             .conteudo {
-                text-align: left;
+                text-align: justify;
                 width: 550px;
+            }
+
+            #assinatura {
+                display:  flex;
+                flex-direction: row;
+                justify-content: space-around;
             }
         </style>
     </head>
@@ -139,8 +145,8 @@
                 <div class="conteudo">
 
                     <b>OUTORGANTE</b> (s): <br>
-                    - Titular
                     {{$outorgante->nome}},
+                    {{$outorgante->CPF }},
                     {{$outorgante->nacionalidade}},
                     {{$outorgante->estado_civil}},
                     {{$outorgante->profissao}},
@@ -153,6 +159,7 @@
 
                     <b>OUTORGADO</b> (s): <br>
                     {{$outorgado->nome}},
+                    {{$outorgado->CPF}},
                     {{$outorgado->nacionalidade}},
                     {{$outorgado->estado_civil}},
                     {{$outorgado->profissao}},
@@ -179,6 +186,18 @@
 
                     <br>
                     <br>
+                    <br>
+                    {{$local}}, {{$data}}
+
+                    <br>
+                    <br>
+
+
+                    <div id="assinatura">
+                        {{$outorgante->nome}}<br>
+                        {{$outorgante->CPF}} <br>
+                  </div>
+
                 </div>
             </div>
         </div>
