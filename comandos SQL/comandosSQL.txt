@@ -1,6 +1,7 @@
 /* OUTORGADO */
 CREATE TABLE outorgados (
 	id INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
     nacionalidade VARCHAR(255) NOT NULL,
     estado_civil VARCHAR(255) NOT NULL,
     profissao VARCHAR(255) NOT NULL,
@@ -18,6 +19,8 @@ CREATE TABLE outorgados (
 /* OUTORGANTE */
 CREATE TABLE outorgantes (
 	id INT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    nome_empresarial VARCHAR(255) NOT NULL,
     nacionalidade VARCHAR(255) NOT NULL,
     estado_civil VARCHAR(255) NOT NULL,
     profissao VARCHAR(255) NOT NULL,

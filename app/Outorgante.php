@@ -12,6 +12,8 @@ class Outorgante extends Model
      * @var array
      */
     protected $fillable = [
+        'nome',
+        'nome_empresarial',
         'nacionalidade',
         'estado_civil',
         'profissao',

@@ -130,6 +130,11 @@
                     <form method="POST" action="{{route('outorgados.store')}}">
                         @csrf
 
+                        <div class="fields nome">
+                            <label for="nome">Nome</label>
+                            <input id="nome" name="nome" type="text">
+                        </div>
+
                         <div class="fields nacionalidade">
                             <label for="nacionalidade">Nacionalidade</label>
                             <input id="nacionalidade" name="nacionalidade" type="text">

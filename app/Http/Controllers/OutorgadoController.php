@@ -14,10 +14,9 @@ class OutorgadoController extends Controller
      */
     public function index()
     {
-        $outorgados = Outorgado::latest()->paginate(5);
+        $outorgados = Outorgado::all();
 
-        return view('outorgados.index',compact('outorgados'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('outorgados.index',compact('outorgados'));
     }
 
     /**

@@ -83,6 +83,9 @@
         </style>
     </head>
     <body>
+
+        @include('./layouts/nav')
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -107,6 +110,7 @@
                     <table>
                         <tr>
                             <th>ID</th>
+                            <th>Nome</th>
                             <th>Nacionalidade</th>
                             <th>Estado Civil</th>
                             <th>Profissão</th>
@@ -122,6 +126,7 @@
                         @foreach($outorgados as $o)
                             <tr>
                                 <td>{{$o->id}}</td>
+                                <td>{{$o->nome}}</td>
                                 <td>{{$o->nacionalidade}}</td>
                                 <td>{{$o->estado_civil}}</td>
                                 <td>{{$o->profissao}}</td>

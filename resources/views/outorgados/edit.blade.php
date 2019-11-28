@@ -131,6 +131,16 @@
                         @csrf
                         @method('PUT')
 
+                        <div class="fields nome">
+                            <label for="nome">Nome</label>
+                            <input
+                                id="nome"
+                                name="nome"
+                                type="text"
+                                value="{{$outorgado->nome}}"
+                            >
+                        </div>
+
                         <div class="fields nacionalidade">
                             <label for="nacionalidade">Nacionalidade</label>
                             <input

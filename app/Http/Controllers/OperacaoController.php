@@ -14,10 +14,9 @@ class OperacaoController extends Controller
      */
     public function index()
     {
-        $operacoes = Operacao::latest()->paginate(5);
+        $operacoes = Operacao::all();
 
-        return view('operacoes.index',compact('operacoes'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('operacoes.index',compact('operacoes'));
     }
 
     /**

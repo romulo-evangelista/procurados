@@ -14,10 +14,9 @@ class TiposJuridicosController extends Controller
      */
     public function index()
     {
-        $tiposJuridicos = TiposJuridicos::latest()->paginate(5);
+        $tiposJuridicos = TiposJuridicos::all();
 
-        return view('tiposJuridicos.index',compact('tiposJuridicos'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('tiposJuridicos.index',compact('tiposJuridicos'));
     }
 
     /**

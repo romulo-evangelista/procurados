@@ -12,6 +12,7 @@ class Outorgado extends Model
      * @var array
      */
     protected $fillable = [
+        'nome',
         'nacionalidade',
         'estado_civil',
         'profissao',
